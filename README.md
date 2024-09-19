@@ -21,4 +21,25 @@ limit 10;
 |mendie alexandrescu|46|single|malexandrescu8@state.gov|504-918-4753|34 Delladonna Terrace,New Orleans,Louisiana|Systems Administrator III|3/12/1921|
 | fey kloss|52|married|fkloss9@godaddy.com|808-177-0318|8976 Jackson Park,Honolulu,Hawaii|Chemical Engineer|11/5/2014|
 
+**Cleaning data steps**
+**Step1:** Create a new table for cleaning by generating a new table where I manipulate and restructure the data without modifying the original dataset. 
+
+` CREATE TABLE club_member_info_cleaned (
+	full_name VARCHAR(50),
+	age INTEGER,
+	martial_status VARCHAR(50),
+	email VARCHAR(50),
+	phone VARCHAR(50),
+	full_address VARCHAR(50),
+	job_title VARCHAR(50),
+	membership_date VARCHAR(50)
+);`
+Then copy all values from the original table.
+
+` INSERT INTO club_member_info_cleaned
+select*from club_member_info
+;`
+
+
+
 
