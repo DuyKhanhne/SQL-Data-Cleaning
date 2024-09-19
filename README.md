@@ -34,13 +34,14 @@ limit 10;
 		full_address VARCHAR(50),
 		job_title VARCHAR(50),
 		membership_date VARCHAR(50)
-    :
+    ;
 
 Then copy all values from the original table.
 
-` INSERT INTO club_member_info_cleaned
-SELECT*FROM club_member_info
-;`
+    INSERT INTO club_member_info_cleaned
+	SELECT*FROM club_member_info
+    ;
+**Step2:** 
 
 
 
