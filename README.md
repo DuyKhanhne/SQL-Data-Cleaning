@@ -23,7 +23,7 @@ limit 10;
 
 **Cleaning data steps:**
 
-**Step1:** Create a new table for cleaning by generating a new table where I manipulate and restructure the data without modifying the original dataset. 
+**Step 1:** Create a new table for cleaning by generating a new table where I manipulate and restructure the data without modifying the original dataset. 
 
     CREATE TABLE club_member_info_cleaned (
 		full_name VARCHAR(50),
@@ -41,7 +41,41 @@ Then copy all values from the original table.
     INSERT INTO club_member_info_cleaned
 	SELECT*FROM club_member_info
     ;
-**Step2:** 
+**Step 2:** Fix structural errors such as typos. trim values, and incorrect capitalization in the first column _full_name_.
+
+    UPDATE club_member_info_cleaned
+	SET full_name = TRIM(UPPER(full_name));
+    UPDATE club_member_info_cleaned 
+	SET full_name = 
+		CASE WHEN full_name = ' ' THEN NULL
+		ELSE full_name 
+	END;
+
+**Step 3:** Fix wrong values in _Age_. To check the problem in this column, I used sorting tools to determine the wrong values.
+    
+    UPDATE club_member_info_cleaned 
+	SET age =
+		CASE WHEN age = ' ' THEN NULL 
+		WHEN age > 70 THEN NULL 
+		ELSE age 
+	END; 
+ 
+ **Step 4:** First check the values in the column _martial_status_ by using group by. There are some trim values and typos errors. Then I can fix the problems.
+    
+    UPDATE club_member_info_cleaned
+    SET martial_status = CASE
+	WHEN martial_status =' ' THEN NULL 
+	WHEN martial_status ='divored' THEN 'divorced'
+	ELSE martial_status
+    END;
+
+**Step 5:** 
+
+
+
+
+
+
 
 
 
