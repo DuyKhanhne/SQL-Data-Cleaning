@@ -25,7 +25,7 @@ limit 10;
 
 **Step1:** Create a new table for cleaning by generating a new table where I manipulate and restructure the data without modifying the original dataset. 
 
-` CREATE TABLE club_member_info_cleaned (
+    <? CREATE TABLE club_member_info_cleaned (
 		full_name VARCHAR(50),
 		age INTEGER,
 		martial_status VARCHAR(50),
@@ -34,7 +34,7 @@ limit 10;
 		full_address VARCHAR(50),
 		job_title VARCHAR(50),
 		membership_date VARCHAR(50)
-);`
+    :?>
 
 Then copy all values from the original table.
 
