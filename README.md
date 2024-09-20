@@ -64,12 +64,30 @@ Then copy all values from the original table.
     
     UPDATE club_member_info_cleaned
     SET martial_status = CASE
-	WHEN martial_status =' ' THEN NULL 
+	WHEN martial_status ='' THEN NULL 
 	WHEN martial_status ='divored' THEN 'divorced'
 	ELSE martial_status
     END;
 
-**Step 5:** 
+**Step 5:** Fix the blank value in the email column.
+
+    UPDATE club_member_info_cleaned 
+    SET email = NULL 
+    WHERE email = '';
+
+**Step 6:** Fix the blank values in the column phone.
+
+    UPDATE club_member_info_cleaned 
+    SET phone = NULL 
+    WHERE phone = '';
+
+**Step 7:** Fix blank values in _Job title_.
+
+    UPDATE club_member_info_cleaned 
+    SET job_title = NULL 
+    WHERE job_title = '';
+
+THAT'ALL! NOW WE HAVE A CLEARED DATABASE.
 
 
 
